@@ -1,5 +1,5 @@
 """
-Live Web Dashboard - Weekly Tech Performance (Upload-Based Version)
+Live Web Dashboard - Performance Dashboard (Upload-Based Version)
 Run with: streamlit run dashboard_app.py
 
 Requires: pip install streamlit plotly pandas openpyxl
@@ -28,7 +28,7 @@ TARGET_METRIC_ALIASES = {
     "bodewell engagement%": "Bodewell Engagement %",
 }
 
-st.set_page_config(page_title="Weekly Tech Performance Dashboard", layout="wide")
+st.set_page_config(page_title="Performance Dashboard", layout="wide")
 
 
 # ------------------------------------------------------------------
@@ -209,7 +209,7 @@ def make_trend_chart(weeks, series_dict, metric, target=None):
 # ------------------------------------------------------------------
 # APP START
 # ------------------------------------------------------------------
-st.title("📊 Weekly Tech Performance Dashboard")
+st.title("📊 Performance Dashboard")
 st.caption("Upload your weekly Tech Stats export(s) below to get started.")
 
 col_a, col_b = st.columns(2)
@@ -246,7 +246,7 @@ st.caption(f"Area: **{area_code or 'N/A'}**  |  {len(TECHS)} Technicians  |  "
            f"Period: {WEEKS[0]} to {WEEKS[-1]}  |  Source: {selected_label}")
 
 tab1, tab2, tab3, tab4, tab5 = st.tabs(
-    ["📋 Executive Summary", "🔍 Tech Deep Dive", "⚖️ Tech Comparison", "🏆 Rankings", "📈 Team Trends"]
+    ["📋 Executive Summary", "🔍 Deep Dive", "⚖️ Comparison", "🏆 Rankings", "📈 Trends"]
 )
 
 # ------------------------------------------------------------------
@@ -323,7 +323,7 @@ with tab1:
 
 
 # ------------------------------------------------------------------
-# TAB 2: TECH DEEP DIVE
+# TAB 2: DEEP DIVE
 # ------------------------------------------------------------------
 with tab2:
     selected_tech = st.selectbox("Select Technician:", TECHS, key="deepdive_tech")
@@ -347,7 +347,7 @@ with tab2:
 
 
 # ------------------------------------------------------------------
-# TAB 3: TECH COMPARISON
+# TAB 3: COMPARISON
 # ------------------------------------------------------------------
 with tab3:
     c1, c2 = st.columns(2)
@@ -391,7 +391,7 @@ with tab4:
 
 
 # ------------------------------------------------------------------
-# TAB 5: TEAM TRENDS
+# TAB 5: TRENDS
 # ------------------------------------------------------------------
 with tab5:
     for metric in METRICS:
